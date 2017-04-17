@@ -1,0 +1,18 @@
+u:\visual studio 2013\Projects\Phonebook\Phonebook\bin\Debug\Phonebook.exe.config
+u:\visual studio 2013\Projects\Phonebook\Phonebook\obj\Debug\Phonebook.csprojResolveAssemblyReference.cache
+u:\visual studio 2013\Projects\Phonebook\Phonebook\obj\Debug\Phonebook.Form1.resources
+u:\visual studio 2013\Projects\Phonebook\Phonebook\obj\Debug\Phonebook.Properties.Resources.resources
+u:\visual studio 2013\Projects\Phonebook\Phonebook\obj\Debug\Phonebook.csproj.GenerateResource.Cache
+D:\school\Phonebook\Phonebook\obj\Debug\Phonebook.csprojResolveAssemblyReference.cache
+D:\school\Phonebook\Phonebook\obj\Debug\Phonebook.Properties.Resources.resources
+D:\school\Phonebook\Phonebook\obj\Debug\Phonebook.csproj.GenerateResource.Cache
+D:\school\Phonebook\Phonebook\bin\Debug\Phonebook.exe.config
+D:\school\Phonebook\Phonebook\bin\Debug\Phonebook.exe
+D:\school\Phonebook\Phonebook\bin\Debug\Phonebook.pdb
+D:\school\Phonebook\Phonebook\obj\Debug\Phonebook.exe
+D:\school\Phonebook\Phonebook\obj\Debug\Phonebook.pdb
+D:\school\Phonebook\Phonebook\obj\Debug\Phonebook.Main.resources
+D:\school\Phonebook\Phonebook\obj\Debug\Phonebook.New.resources
+D:\school\Phonebook\Phonebook\obj\Debug\Phonebook.DetailsForm.resources
+D:\school\Phonebook\Phonebook\obj\Debug\Phonebook.AddtoForm.resources
+D:\school\Phonebook\Phonebook\obj\Debug\Phonebook.groupsForm.resources
