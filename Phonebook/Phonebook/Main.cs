@@ -138,7 +138,7 @@ namespace Phonebook
             if (value != null)
             {
                 var content = value.Split(';');
-                contact = new Company(content[1], content[0], new UserGroup(""));
+                contact = new Company(content[1], content[0]," ", new UserGroup(""));
                 Pb.Delete(contact);
                 UpdateForm();
                 help.successMessage("contact succesfully deleted");
@@ -146,6 +146,7 @@ namespace Phonebook
         }
 
         void addTo() {
+            clearSelectedContacts();
             getSelectedContacts();
             AddtoForm addform = new AddtoForm(this, selectedContacts);
             addform.ShowDialog();
@@ -202,6 +203,10 @@ namespace Phonebook
                 selectedContacts.Add(contactdetails);
             }
             return selectedContacts;
-        }        
+        }
+
+        public void clearSelectedContacts() {
+            selectedContacts.Clear();
+        }
     }
 }

@@ -16,3 +16,16 @@ D:\school\Phonebook\Phonebook\obj\Debug\Phonebook.New.resources
 D:\school\Phonebook\Phonebook\obj\Debug\Phonebook.DetailsForm.resources
 D:\school\Phonebook\Phonebook\obj\Debug\Phonebook.AddtoForm.resources
 D:\school\Phonebook\Phonebook\obj\Debug\Phonebook.groupsForm.resources
+D:\school\simplePhoneBook\simplephonebook\Phonebook\Phonebook\obj\Debug\Phonebook.csprojResolveAssemblyReference.cache
+D:\school\simplePhoneBook\simplephonebook\Phonebook\Phonebook\obj\Debug\Phonebook.AddtoForm.resources
+D:\school\simplePhoneBook\simplephonebook\Phonebook\Phonebook\obj\Debug\Phonebook.DetailsForm.resources
+D:\school\simplePhoneBook\simplephonebook\Phonebook\Phonebook\obj\Debug\Phonebook.groupsForm.resources
+D:\school\simplePhoneBook\simplephonebook\Phonebook\Phonebook\obj\Debug\Phonebook.Main.resources
+D:\school\simplePhoneBook\simplephonebook\Phonebook\Phonebook\obj\Debug\Phonebook.New.resources
+D:\school\simplePhoneBook\simplephonebook\Phonebook\Phonebook\obj\Debug\Phonebook.Properties.Resources.resources
+D:\school\simplePhoneBook\simplephonebook\Phonebook\Phonebook\obj\Debug\Phonebook.csproj.GenerateResource.Cache
+D:\school\simplePhoneBook\simplephonebook\Phonebook\Phonebook\obj\Debug\Phonebook.exe
+D:\school\simplePhoneBook\simplephonebook\Phonebook\Phonebook\obj\Debug\Phonebook.pdb
+D:\school\simplePhoneBook\simplephonebook\Phonebook\Phonebook\bin\Debug\Phonebook.exe.config
+D:\school\simplePhoneBook\simplephonebook\Phonebook\Phonebook\bin\Debug\Phonebook.exe
+D:\school\simplePhoneBook\simplephonebook\Phonebook\Phonebook\bin\Debug\Phonebook.pdb

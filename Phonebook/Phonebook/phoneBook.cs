@@ -57,6 +57,7 @@ namespace Phonebook
         public void Update(Contact contact, Contact newcontact) {
             contact.Name = newcontact.Name;
             contact.PhoneNumber = newcontact.PhoneNumber;
+            contact.Address = newcontact.Address;
             contact.userGroup = newcontact.userGroup;
         }
 
@@ -90,15 +91,15 @@ namespace Phonebook
             UserGroup group2 = new UserGroup("work");
             UserGroup group3 = new UserGroup("Pals");
             UserGroup group4 = new UserGroup("Unassigned");
-            Contact contact = new Person("Gorkem", "Pacaci", "0872899404", group2);
-            Contact contact1 = new Person("Niklas", "Wietreck", "4987509095", group3);
-            Contact contact2 = new Person("Craig", "Smith", "0787509095", group3);
-            Contact contact3 = new Person("Ssali", "Steven", "06495054", group3);
-            Contact contact4 = new Person("Mpho", "Sizwe", "1023076853", group2);
-            Contact contact5 = new Person("Jenny", "Green", "4987509095", group4);
-            Contact contact6 = new Company("KFC Delivery", "037849836", group4);
-            Contact contact7 = new Company("Spotify", "038765846", group2);
-            Contact contact8 = new Company("Debonairs Pizza", "2078489793", group4);
+            Contact contact = new Person("Gorkem", "Pacaci", "0872899404","55 Bowman's Avenue", group2);
+            Contact contact1 = new Person("Niklas", "Wietreck", "4987509095", "55 Bowman's Avenue", group3);
+            Contact contact2 = new Person("Craig", "Smith", "0787509095", "55 Bowman's Avenue", group3);
+            Contact contact3 = new Person("Ssali", "Steven", "06495054", "55 Bowman's Avenue", group3);
+            Contact contact4 = new Person("Mpho", "Sizwe", "1023076853", "55 Bowman's Avenue", group2);
+            Contact contact5 = new Person("Jenny", "Green", "4987509095", "55 Bowman's Avenue", group4);
+            Contact contact6 = new Company("KFC Delivery", "037849836", "55 Bowman's Avenue", group4);
+            Contact contact7 = new Company("Spotify", "038765846", "55 Bowman's Avenue", group2);
+            Contact contact8 = new Company("Debonairs Pizza", "2078489793", "55 Bowman's Avenue", group4);
 
             UserGroups.Add(group);
             UserGroups.Add(group2);

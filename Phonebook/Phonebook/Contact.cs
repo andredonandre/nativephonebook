@@ -8,9 +8,10 @@ namespace Phonebook
 {
     public class Contact
     {
+        public string Id { get; set; }
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
-        public string Id { get; set; }
+        public string Address { get; set; }
         public UserGroup userGroup { get; set; }
 
         public Contact() {

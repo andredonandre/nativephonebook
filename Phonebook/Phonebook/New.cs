@@ -60,6 +60,8 @@ namespace Phonebook
             FirstNtextBox.Clear();
             LastNtextBox.Clear();
             PhonetextBox.Clear();
+            personaddresstextBox.Clear();
+            companyaddresstextBox.Clear();
             CompanyNtextBox.Clear();
             CompanyPhonetextBox.Clear();
             ugcomboBox1.SelectedItem = null;
@@ -113,15 +115,27 @@ namespace Phonebook
         Contact setcompanyvalues()
         {
             var group = Pbook.GetObject(ugcomboBox2.SelectedItem.ToString());
-            var contact = new Company(CompanyPhonetextBox.Text, CompanyNtextBox.Text, group);
+            var contact = new Company(CompanyNtextBox.Text,CompanyPhonetextBox.Text,companyaddresstextBox.Text, group);
             return contact;
         }
 
         Contact setpersonvalues()
         {
             var group = Pbook.GetObject(ugcomboBox1.SelectedItem.ToString());
-            var contact = new Person(FirstNtextBox.Text, LastNtextBox.Text, PhonetextBox.Text, group);
+            var contact = new Person(FirstNtextBox.Text, LastNtextBox.Text, PhonetextBox.Text, personaddresstextBox.Text, group);
             return contact;
+        }
+
+        private void addbutton_Click(object sender, EventArgs e)
+        {
+            switch (addContactTabControl.SelectedIndex) {
+                case 0:
+                    addPerson();
+                    break;
+                case 1:
+                    addCompany();
+                    break;
+            } 
         }
     }
 }

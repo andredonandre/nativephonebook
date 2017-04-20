@@ -16,6 +16,7 @@ namespace Phonebook
         Main parentForm;
         int selectedNumber = 0;
         Collection<Contact> selectedcontacts;
+        helpers help = new helpers();
         UserGroup selectedUsergroup;
         public AddtoForm(Main main, Collection<Contact> selected)
         {
@@ -54,7 +55,15 @@ namespace Phonebook
         }
 
         void save() {
-            getSelectedUserGroup();
+            if (help.checknulls(Usercombobox, errorProvider1) == false){
+                getSelectedUserGroup();
+                addContactstoGroup();
+                help.successMessage(" Contacts have been succesfully added to group");
+                closeForm();
+            }
+        }
+
+        void addContactstoGroup() {
             foreach (var contact in selectedcontacts)
             {
                 var actual = parentForm.Pb.GetObject(contact);
@@ -63,5 +72,14 @@ namespace Phonebook
             }
         }
 
+        void closeForm() {
+            parentForm.clearSelectedContacts();
+            Close();
+        }
+
+        private void cancelbutton_Click_1(object sender, EventArgs e)
+        {
+            closeForm();
+        }
     }
 }

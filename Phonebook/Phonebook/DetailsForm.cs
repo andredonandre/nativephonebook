@@ -40,6 +40,7 @@ namespace Phonebook
         {
             NametextBox.Text = contact.Name;
             PhonetextBox.Text = contact.PhoneNumber;
+            addresstextBox.Text = contact.Address;
             UgcomboBox.Text = contact.userGroup.Name;
         }
         private Contact GetValues()
@@ -48,6 +49,7 @@ namespace Phonebook
             {
                 Name = NametextBox.Text,
                 PhoneNumber = PhonetextBox.Text,
+                Address= addresstextBox.Text,
                 userGroup = new UserGroup(UgcomboBox.Text)
             };
             return contact;
@@ -74,6 +76,7 @@ namespace Phonebook
         {
             NametextBox.Enabled = false;
             PhonetextBox.Enabled = false;
+            addresstextBox.Enabled = false;
             UgcomboBox.Enabled = false;
             savebutton.Visible = false;
             callbutton.Visible = true;
@@ -82,6 +85,7 @@ namespace Phonebook
         {
             NametextBox.Enabled = true;
             PhonetextBox.Enabled = true;
+            addresstextBox.Enabled = true;
             UgcomboBox.Enabled = true;
             savebutton.Visible = true;
             callbutton.Visible = false;

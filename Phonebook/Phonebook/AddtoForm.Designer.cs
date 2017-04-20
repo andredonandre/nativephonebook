@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Usercombobox = new System.Windows.Forms.ComboBox();
             this.savebutton = new System.Windows.Forms.Button();
             this.cancelbutton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.Valuelabel = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // Usercombobox
@@ -65,6 +68,7 @@
             this.cancelbutton.TabIndex = 5;
             this.cancelbutton.Text = "Cancel";
             this.cancelbutton.UseVisualStyleBackColor = true;
+            this.cancelbutton.Click += new System.EventHandler(this.cancelbutton_Click_1);
             // 
             // label1
             // 
@@ -87,6 +91,10 @@
             this.Valuelabel.TabIndex = 7;
             this.Valuelabel.Text = "value";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // AddtoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -104,6 +112,7 @@
             this.Name = "AddtoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Select User Group";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,5 +125,6 @@
         private System.Windows.Forms.Button cancelbutton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label Valuelabel;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

@@ -8,11 +8,12 @@ namespace Phonebook
 {
     class Company : Contact
     {
-       public Company(string name, string phone, UserGroup group)
+       public Company(string name, string phone,string address, UserGroup group)
         {
             PhoneNumber = phone;
             Name = name;
             userGroup = group;
+            Address = address;
         }
     }
 }
