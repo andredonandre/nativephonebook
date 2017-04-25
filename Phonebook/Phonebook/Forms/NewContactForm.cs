@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace Phonebook
 {
-    public partial class New : Form
+    public partial class NewContactForm : Form
     {
         private phoneBook Pbook;
         private Main MainForm;
         private helpers help = new helpers();
-        public New(phoneBook pbook, Main main)
+        public NewContactForm(phoneBook pbook, Main main)
         {
             InitializeComponent();
             Pbook = pbook;

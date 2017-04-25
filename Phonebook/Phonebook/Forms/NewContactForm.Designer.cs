@@ -1,6 +1,6 @@
 ﻿namespace Phonebook
 {
-    partial class New
+    partial class NewContactForm
     {
         /// <summary>
         /// Required designer variable.

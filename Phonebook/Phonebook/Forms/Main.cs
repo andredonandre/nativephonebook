@@ -114,7 +114,7 @@ namespace Phonebook
         }
 
         void add() {
-            New addNew = new New(Pb, this);
+            NewContactForm addNew = new NewContactForm(Pb, this);
             addNew.ShowDialog();
         }
 
