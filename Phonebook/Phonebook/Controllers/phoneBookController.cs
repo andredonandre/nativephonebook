@@ -7,50 +7,48 @@ using System.Threading.Tasks;
 
 namespace Phonebook
 {
-    public class phoneBook
+    public class phoneBookController
     {
-        private Collection<Contact> Contacts;
-        private Collection<UserGroup> UserGroups;
+        public phoneBook phonebook;
         
-        public phoneBook() {
-            Contacts = new Collection<Contact>();
-            UserGroups = new Collection<UserGroup>();
-            getDefaults();
+        public phoneBookController() {
+            phonebook = new phoneBook();
+            getDefaults();            
         }
 
         //functions to create new objects in store
         public void Create(Contact contact) { 
-            Contacts.Add(contact);
+            phonebook.Contacts.Add(contact);
         }
 
         public void Create(UserGroup usergroup)
         {
-            UserGroups.Add(usergroup);
+            phonebook.UserGroups.Add(usergroup);
         }
 
         //Delete functions
         public void Delete(Contact contact)
         {
             var selected = GetObject(contact);
-            Contacts.Remove(selected);
+            phonebook.Contacts.Remove(selected);
         }
 
         public void Delete(UserGroup usergroup)
         {
             var selected = GetObject(usergroup.Name);
-            UserGroups.Remove(selected);
+            phonebook.UserGroups.Remove(selected);
         }
 
 
         //functions to get collections of objects
         public Collection<Contact> GetContacts()
         {            
-            return Contacts;
+            return phonebook.Contacts;
         }
 
         public Collection<UserGroup> GetUserGroups()
         {
-            return UserGroups;
+            return phonebook.UserGroups;
         }
 
         //functions to update record/object in store
@@ -68,19 +66,19 @@ namespace Phonebook
 
         //functions to get objects from store
         public Contact GetObject(Contact contact) {
-            var value = Contacts.Where(x => x.Name == contact.Name && x.PhoneNumber == contact.PhoneNumber).FirstOrDefault();
+            var value = phonebook.Contacts.Where(x => x.Name == contact.Name && x.PhoneNumber == contact.PhoneNumber).FirstOrDefault();
             return value;
         }
 
         public UserGroup GetObject(string usergroup)
         {
-            var value = UserGroups.Where(x => x.Name == usergroup).FirstOrDefault();
+            var value = phonebook.UserGroups.Where(x => x.Name == usergroup).FirstOrDefault();
             return value;
         }
 
         public UserGroup GetObject(UserGroup usergroup)
         {
-            var value = UserGroups.Where(x => x.Id == usergroup.Id).FirstOrDefault();
+            var value = phonebook.UserGroups.Where(x => x.Id == usergroup.Id).FirstOrDefault();
             return value;
         }
 
@@ -101,20 +99,20 @@ namespace Phonebook
             Contact contact7 = new Company("Spotify", "038765846", "55 Bowman's Avenue", group2);
             Contact contact8 = new Company("Debonairs Pizza", "2078489793", "55 Bowman's Avenue", group4);
 
-            UserGroups.Add(group);
-            UserGroups.Add(group2);
-            UserGroups.Add(group3);
-            UserGroups.Add(group4);
+            Create(group);
+            Create(group2);
+            Create(group3);
+            Create(group4);
 
-            Contacts.Add(contact);
-            Contacts.Add(contact1);
-            Contacts.Add(contact2);
-            Contacts.Add(contact3);
-            Contacts.Add(contact4);
-            Contacts.Add(contact5);
-            Contacts.Add(contact6);
-            Contacts.Add(contact7);
-            Contacts.Add(contact8);
+            Create(contact);
+            Create(contact1);
+            Create(contact2);
+            Create(contact3);
+            Create(contact4);
+            Create(contact5);
+            Create(contact6);
+            Create(contact7);
+            Create(contact8);
         }
 
     }

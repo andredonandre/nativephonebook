@@ -14,10 +14,12 @@ namespace Phonebook
     public partial class AddtoForm : Form
     {
         Main parentForm;
+        helpers help = new helpers();
+        
         int selectedNumber = 0;
         Collection<Contact> selectedcontacts;
-        helpers help = new helpers();
         UserGroup selectedUsergroup;
+
         public AddtoForm(Main main, Collection<Contact> selected)
         {
             InitializeComponent();

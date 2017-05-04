@@ -1,0 +1,15 @@
+D:\school\simplePhoneBook\simplephonebook\Phonebook\PhoneBookTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+D:\school\simplePhoneBook\simplephonebook\Phonebook\PhoneBookTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+D:\school\simplePhoneBook\simplephonebook\Phonebook\PhoneBookTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+D:\school\simplePhoneBook\simplephonebook\Phonebook\PhoneBookTests\bin\Debug\PhoneBookTests.dll
+D:\school\simplePhoneBook\simplephonebook\Phonebook\PhoneBookTests\bin\Debug\PhoneBookTests.pdb
+D:\school\simplePhoneBook\simplephonebook\Phonebook\PhoneBookTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+D:\school\simplePhoneBook\simplephonebook\Phonebook\PhoneBookTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+D:\school\simplePhoneBook\simplephonebook\Phonebook\PhoneBookTests\bin\Debug\Phonebook.exe
+D:\school\simplePhoneBook\simplephonebook\Phonebook\PhoneBookTests\bin\Debug\Phonebook.pdb
+D:\school\simplePhoneBook\simplephonebook\Phonebook\PhoneBookTests\bin\Debug\Phonebook.exe.config
+D:\school\simplePhoneBook\simplephonebook\Phonebook\PhoneBookTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+D:\school\simplePhoneBook\simplephonebook\Phonebook\PhoneBookTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+D:\school\simplePhoneBook\simplephonebook\Phonebook\PhoneBookTests\obj\Debug\PhoneBookTests.csprojResolveAssemblyReference.cache
+D:\school\simplePhoneBook\simplephonebook\Phonebook\PhoneBookTests\obj\Debug\PhoneBookTests.dll
+D:\school\simplePhoneBook\simplephonebook\Phonebook\PhoneBookTests\obj\Debug\PhoneBookTests.pdb

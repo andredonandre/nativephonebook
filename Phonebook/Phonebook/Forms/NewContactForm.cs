@@ -12,10 +12,10 @@ namespace Phonebook
 {
     public partial class NewContactForm : Form
     {
-        private phoneBook Pbook;
+        private phoneBookController Pbook;
         private Main MainForm;
         private helpers help = new helpers();
-        public NewContactForm(phoneBook pbook, Main main)
+        public NewContactForm(phoneBookController pbook, Main main)
         {
             InitializeComponent();
             Pbook = pbook;
@@ -137,5 +137,6 @@ namespace Phonebook
                     break;
             } 
         }
+        
     }
 }

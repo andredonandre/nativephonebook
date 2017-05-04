@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phonebook", "Phonebook\Phonebook.csproj", "{92EDEFA3-F586-468A-B672-3B61B5F9E7E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBookTests", "PhoneBookTests\PhoneBookTests.csproj", "{E3FA2D08-1BF2-4203-80CB-8A527330DD51}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{92EDEFA3-F586-468A-B672-3B61B5F9E7E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92EDEFA3-F586-468A-B672-3B61B5F9E7E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92EDEFA3-F586-468A-B672-3B61B5F9E7E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3FA2D08-1BF2-4203-80CB-8A527330DD51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3FA2D08-1BF2-4203-80CB-8A527330DD51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3FA2D08-1BF2-4203-80CB-8A527330DD51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3FA2D08-1BF2-4203-80CB-8A527330DD51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

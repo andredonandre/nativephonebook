@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.Cancelbutton = new System.Windows.Forms.Button();
             this.companyTab = new System.Windows.Forms.TabPage();
+            this.companyaddresslabel = new System.Windows.Forms.Label();
+            this.companyaddresstextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -38,6 +40,7 @@
             this.CompanyPhonetextBox = new System.Windows.Forms.TextBox();
             this.CompanyNtextBox = new System.Windows.Forms.TextBox();
             this.personTab = new System.Windows.Forms.TabPage();
+            this.addresslabel = new System.Windows.Forms.Label();
             this.personaddresstextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,9 +52,6 @@
             this.FirstNtextBox = new System.Windows.Forms.TextBox();
             this.addContactTabControl = new System.Windows.Forms.TabControl();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.addresslabel = new System.Windows.Forms.Label();
-            this.companyaddresslabel = new System.Windows.Forms.Label();
-            this.companyaddresstextBox = new System.Windows.Forms.TextBox();
             this.addbutton = new System.Windows.Forms.Button();
             this.companyTab.SuspendLayout();
             this.personTab.SuspendLayout();
@@ -84,10 +84,29 @@
             this.companyTab.Margin = new System.Windows.Forms.Padding(4);
             this.companyTab.Name = "companyTab";
             this.companyTab.Padding = new System.Windows.Forms.Padding(4);
-            this.companyTab.Size = new System.Drawing.Size(454, 365);
+            this.companyTab.Size = new System.Drawing.Size(454, 354);
             this.companyTab.TabIndex = 1;
             this.companyTab.Text = "Company";
             this.companyTab.UseVisualStyleBackColor = true;
+            // 
+            // companyaddresslabel
+            // 
+            this.companyaddresslabel.AutoSize = true;
+            this.companyaddresslabel.Location = new System.Drawing.Point(22, 148);
+            this.companyaddresslabel.Name = "companyaddresslabel";
+            this.companyaddresslabel.Size = new System.Drawing.Size(76, 21);
+            this.companyaddresslabel.TabIndex = 12;
+            this.companyaddresslabel.Text = "address";
+            // 
+            // companyaddresstextBox
+            // 
+            this.companyaddresstextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.companyaddresstextBox.Location = new System.Drawing.Point(26, 174);
+            this.companyaddresstextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.companyaddresstextBox.Multiline = true;
+            this.companyaddresstextBox.Name = "companyaddresstextBox";
+            this.companyaddresstextBox.Size = new System.Drawing.Size(406, 72);
+            this.companyaddresstextBox.TabIndex = 11;
             // 
             // label7
             // 
@@ -163,6 +182,15 @@
             this.personTab.TabIndex = 0;
             this.personTab.Text = "Person";
             this.personTab.UseVisualStyleBackColor = true;
+            // 
+            // addresslabel
+            // 
+            this.addresslabel.AutoSize = true;
+            this.addresslabel.Location = new System.Drawing.Point(22, 183);
+            this.addresslabel.Name = "addresslabel";
+            this.addresslabel.Size = new System.Drawing.Size(76, 21);
+            this.addresslabel.TabIndex = 10;
+            this.addresslabel.Text = "address";
             // 
             // personaddresstextBox
             // 
@@ -264,34 +292,6 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // addresslabel
-            // 
-            this.addresslabel.AutoSize = true;
-            this.addresslabel.Location = new System.Drawing.Point(22, 183);
-            this.addresslabel.Name = "addresslabel";
-            this.addresslabel.Size = new System.Drawing.Size(76, 21);
-            this.addresslabel.TabIndex = 10;
-            this.addresslabel.Text = "address";
-            // 
-            // companyaddresslabel
-            // 
-            this.companyaddresslabel.AutoSize = true;
-            this.companyaddresslabel.Location = new System.Drawing.Point(22, 148);
-            this.companyaddresslabel.Name = "companyaddresslabel";
-            this.companyaddresslabel.Size = new System.Drawing.Size(76, 21);
-            this.companyaddresslabel.TabIndex = 12;
-            this.companyaddresslabel.Text = "address";
-            // 
-            // companyaddresstextBox
-            // 
-            this.companyaddresstextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.companyaddresstextBox.Location = new System.Drawing.Point(26, 174);
-            this.companyaddresstextBox.Margin = new System.Windows.Forms.Padding(4);
-            this.companyaddresstextBox.Multiline = true;
-            this.companyaddresstextBox.Name = "companyaddresstextBox";
-            this.companyaddresstextBox.Size = new System.Drawing.Size(406, 72);
-            this.companyaddresstextBox.TabIndex = 11;
-            // 
             // addbutton
             // 
             this.addbutton.Location = new System.Drawing.Point(313, 429);
@@ -303,7 +303,7 @@
             this.addbutton.UseVisualStyleBackColor = true;
             this.addbutton.Click += new System.EventHandler(this.addbutton_Click);
             // 
-            // New
+            // NewContactForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -315,7 +315,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "New";
+            this.Name = "NewContactForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New";
             this.companyTab.ResumeLayout(false);

@@ -16,8 +16,9 @@ namespace Phonebook
         Collection<Contact> Contacts;
         Collection<Contact> selectedContacts = new Collection<Contact>();
         Collection<UserGroup> Usergroups;
+
         private helpers help = new helpers();
-        public phoneBook Pb = new phoneBook();
+        public phoneBookController Pb = new phoneBookController();
 
         public Main()
         {
@@ -207,6 +208,6 @@ namespace Phonebook
 
         public void clearSelectedContacts() {
             selectedContacts.Clear();
-        }
+        }        
     }
 }
