@@ -74,6 +74,7 @@ namespace Phonebook.Tests
         [TestMethod()]
         public void GetObjectFunctionTest1()
         {
+            //Declaring method to be tested
             Assert.Fail();
         }
 
