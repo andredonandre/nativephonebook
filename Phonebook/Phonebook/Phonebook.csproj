@@ -53,12 +53,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\addtoFormController.cs" />
+    <Compile Include="Controllers\detailsFormController.cs" />
+    <Compile Include="Controllers\mainController.cs" />
+    <Compile Include="Controllers\newContactFormController.cs" />
     <Compile Include="Forms\AddtoForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\AddtoForm.Designer.cs">
       <DependentUpon>AddtoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\formControlHelpers.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Forms\DetailsForm.cs">
       <SubType>Form</SubType>
