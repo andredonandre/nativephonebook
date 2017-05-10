@@ -11,9 +11,6 @@ namespace Phonebook.Tests
     [TestClass()]
     public class phoneBookControllerTests
     {
-        /// <summary>
-        /// Hello world - bit bucket test
-        /// </summary>
         [TestMethod()]
         public void phoneBookControllerFunctionTest()
         {
