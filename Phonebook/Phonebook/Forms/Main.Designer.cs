@@ -136,7 +136,6 @@
             // addtolink
             // 
             this.addtolink.AutoSize = true;
-            this.addtolink.Enabled = false;
             this.addtolink.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addtolink.Location = new System.Drawing.Point(368, 9);
             this.addtolink.Name = "addtolink";

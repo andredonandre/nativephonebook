@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Phonebook.Controllers;
 
 namespace Phonebook
 {
@@ -16,10 +17,10 @@ namespace Phonebook
         [STAThread]
         static void Main()
         {
+            mainController control = new mainController();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main());
-
+            Application.Run(new Main(control));
         }
     }
 }

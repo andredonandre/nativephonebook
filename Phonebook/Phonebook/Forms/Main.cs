@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Phonebook.Controllers;
+using Phonebook.Helpers;
 
 namespace Phonebook
 {
@@ -18,10 +20,17 @@ namespace Phonebook
         Collection<UserGroup> Usergroups;
 
         private helpers help = new helpers();
+        private formControlHelpers formhelp = new formControlHelpers();
+        private groupsFormController groupsCtrl = new groupsFormController();
+        private addToFormController addtoCtrl = new addToFormController();
+        private newContactFormController newFormCtrl = new newContactFormController();
         public phoneBookController Pb = new phoneBookController();
+        mainController mainCtrl;
+        
 
-        public Main()
+        public Main(mainController _controller)
         {
+            mainCtrl = _controller;
             InitializeComponent();
             setDefaults();
         }
@@ -57,7 +66,7 @@ namespace Phonebook
         }
         private void addtolink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            addTo();
+            if (selectedContacts != null) { addTo(); }            
         }
 
         private void groupsLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -80,21 +89,11 @@ namespace Phonebook
         }
 
         //Helpers to load objects in elements
-        public void loadElement(ComboBox combobox)
-        {
-            combobox.Items.Clear();
-            foreach (UserGroup ug in Usergroups){
-                combobox.Items.Add(ug.Name);
-            }
+        public void loadElement(ComboBox combobox) {
+            formhelp.loadElement(combobox, Usergroups);
         }
-
-        public void loadElement(ListBox listbox)
-        {
-            listbox.Items.Clear();
-            foreach (UserGroup ug in Usergroups)
-            {
-                listbox.Items.Add(ug.Name);
-            }
+        public void loadElement(ListBox listbox) {
+            formhelp.loadElement(listbox, Usergroups);
         }
 
         public void UpdateForm() {
@@ -110,17 +109,15 @@ namespace Phonebook
 
         private string select(DataGridView grid) {
             var value = grid.CurrentRow.AccessibilityObject.Value;
-            activateButtons();
+            //activateButtons();
             return value;
         }
 
         void add() {
-            NewContactForm addNew = new NewContactForm(Pb, this);
-            addNew.ShowDialog();
+            newFormCtrl.open(this);
         }
 
         private void edit() {
-
             var value = select(contactGrid);
             Contact contact;
             DetailsForm details;
@@ -149,22 +146,17 @@ namespace Phonebook
         void addTo() {
             clearSelectedContacts();
             getSelectedContacts();
-            AddtoForm addform = new AddtoForm(this, selectedContacts);
-            addform.ShowDialog();
+            addtoCtrl.open(this, selectedContacts);
         }
 
         void managegroups(){
-            groupsForm groups = new groupsForm(this);
-            groups.ShowDialog();
+            groupsCtrl.open(this);
         }
-        //Loading Data grid View with Values
+
+        //Loading Data grid View with Values        
         private void loadContacts()
         {
-            contactGrid.Rows.Clear();
-            foreach (Contact c in Contacts)
-            {
-                contactGrid.Rows.Add(c.Name, c.PhoneNumber);
-            }
+            mainCtrl.loadContacts(contactGrid, Contacts);
         }
         
         private void activateButtons()
@@ -174,36 +166,11 @@ namespace Phonebook
         
         private void filterContacts(string group)
         {
-            var newlist = new Collection<Contact>();
-            if (group == "All Contacts")
-            {
-                Contacts = Pb.GetContacts();
-            }
-            else
-            {
-                Contacts = Pb.GetContacts();
-                foreach (Contact contact in Contacts)
-                {
-                    if (contact.userGroup.Name.ToString() == group)
-                        newlist.Add(contact);
-                }
-                Contacts = newlist;
-            }
+            mainCtrl.filterContacts(group, Contacts, Pb);
         }
 
         private Collection<Contact> getSelectedContacts() {
-            var selected = contactGrid.SelectedRows.OfType<DataGridViewRow>();
-            foreach (var row in selected) {
-                var contact = new Contact
-                {
-                    Name = row.Cells[0].Value.ToString(),
-                    PhoneNumber = row.Cells[1].Value.ToString(),
-                    userGroup = new UserGroup("")
-                };
-                var contactdetails = Pb.GetObject(contact);
-                selectedContacts.Add(contactdetails);
-            }
-            return selectedContacts;
+            return formhelp.getSelectedContacts(contactGrid, Pb,selectedContacts);
         }
 
         public void clearSelectedContacts() {

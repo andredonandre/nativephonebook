@@ -4,16 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Collections.ObjectModel;
 
 namespace Phonebook.Controllers
 {
-    class newContactFormController
+    class groupsFormController
     {
         public void open(Main main)
         {
-            NewContactForm addNew = new NewContactForm(main.Pb, main);
-            addNew.ShowDialog();
+            groupsForm groups = new groupsForm(main);
+            groups.ShowDialog();
         }
     }
 }
