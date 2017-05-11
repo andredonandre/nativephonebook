@@ -19,22 +19,22 @@ namespace Phonebook.Controllers
             }
         }
 
-        public void filterContacts(string group, Collection<Contact> list, phoneBookController Pb)
+        public void filterContacts(string group, Main main)
         {
             var newlist = new Collection<Contact>();
             if (group == "All Contacts")
             {
-                list = Pb.GetContacts();
+                main.Contacts = main.Pb.GetContacts();
             }
             else
             {
-                list = Pb.GetContacts();
-                foreach (Contact contact in list)
+                main.Contacts = main.Pb.GetContacts();
+                foreach (Contact contact in main.Contacts)
                 {
                     if (contact.userGroup.Name.ToString() == group)
                         newlist.Add(contact);
                 }
-                list = newlist;
+                main.Contacts = newlist;
             }
         }
                

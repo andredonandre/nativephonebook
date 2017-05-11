@@ -15,7 +15,7 @@ namespace Phonebook
 {
     public partial class Main : Form
     {
-        Collection<Contact> Contacts;
+        public Collection<Contact> Contacts;
         Collection<Contact> selectedContacts = new Collection<Contact>();
         Collection<UserGroup> Usergroups;
 
@@ -136,7 +136,7 @@ namespace Phonebook
             if (value != null)
             {
                 var content = value.Split(';');
-                contact = new Company(content[1], content[0]," ", new UserGroup(""));
+                contact = new Contact { Name = content[0], PhoneNumber= content[1]};
                 Pb.Delete(contact);
                 UpdateForm();
                 help.successMessage("contact succesfully deleted");
@@ -166,7 +166,7 @@ namespace Phonebook
         
         private void filterContacts(string group)
         {
-            mainCtrl.filterContacts(group, Contacts, Pb);
+            mainCtrl.filterContacts(group,this);
         }
 
         private Collection<Contact> getSelectedContacts() {
