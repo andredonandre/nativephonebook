@@ -56,6 +56,7 @@
     <Compile Include="Forms\groupsFormTests.cs" />
     <Compile Include="Forms\MainFormTests.cs" />
     <Compile Include="Forms\NewContactFormTests.cs" />
+    <Compile Include="Helpers\formControlHelpersTests.cs" />
     <Compile Include="Helpers\helpersTests.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

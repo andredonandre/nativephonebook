@@ -46,5 +46,41 @@ namespace Phonebook.Tests
         {
             Assert.Fail();
         }
+
+        [TestMethod()]
+        public void successMessageFunctionTest1()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void checknullsFunctionTest4()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void restrictinputFunctionTest1()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void checknullsFunctionTest5()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void checknullsFunctionTest6()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void checknullsFunctionTest7()
+        {
+            Assert.Fail();
+        }
     }
 }
