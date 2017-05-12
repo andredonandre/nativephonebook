@@ -7,14 +7,14 @@ using System.Windows.Forms;
 
 namespace Phonebook
 {
-    public class helpers
+    public class valueHelpers
     {
-        public void successMessage(string text)
+        public static void successMessage(string text)
         {
             MessageBox.Show(text);
         }
 
-        public void restrictinput(KeyPressEventArgs e)
+        public static void restrictinput(KeyPressEventArgs e)
         {
             if (!(Char.IsDigit(e.KeyChar) || (e.KeyChar == (char)Keys.Back) || (e.KeyChar == (char)43)))
             {
@@ -22,7 +22,7 @@ namespace Phonebook
             }
         }
 
-        public bool checknulls(TextBox textbox, ErrorProvider error)
+        public static bool checknulls(TextBox textbox, ErrorProvider error)
         {
             bool value = false;
             if (textbox.Text == "")
@@ -33,7 +33,7 @@ namespace Phonebook
             return value;
         }
 
-        public bool checknulls(ComboBox combobox, ErrorProvider error)
+        public static bool checknulls(ComboBox combobox, ErrorProvider error)
         {
             bool value = false;
             if (combobox.SelectedItem == null || combobox.Text == "")
@@ -45,7 +45,7 @@ namespace Phonebook
             return value;
         }
 
-        public bool checknulls(ListBox listbox, ErrorProvider error)
+        public static bool checknulls(ListBox listbox, ErrorProvider error)
         {
             bool value = false;
             if (listbox.SelectedItem == null)
@@ -56,7 +56,7 @@ namespace Phonebook
             return value;
         }
 
-        public bool checknulls(DataGridView grid, ErrorProvider error)
+        public static bool checknulls(DataGridView grid, ErrorProvider error)
         {
             bool value = false;
             if (grid.CurrentRow.AccessibilityObject.Value == null || grid.CurrentCell.AccessibilityObject.Value == null )

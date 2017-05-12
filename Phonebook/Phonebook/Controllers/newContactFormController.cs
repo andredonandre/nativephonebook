@@ -15,5 +15,13 @@ namespace Phonebook.Controllers
             NewContactForm addNew = new NewContactForm(main.Pb, main);
             addNew.ShowDialog();
         }
+
+        public void addcontact(Contact contact, Main main)
+        {
+            main.Pb.Create(contact);
+            main.UpdateForm();
+            valueHelpers.successMessage("Contact succesfully added");
+        }
+
     }
 }

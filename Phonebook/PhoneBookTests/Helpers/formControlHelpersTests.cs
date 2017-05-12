@@ -40,5 +40,65 @@ namespace Phonebook.Helpers.Tests
         {
             Assert.Fail();
         }
+
+        [TestMethod()]
+        public void selectFunctionTest2()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void loadElementFunctionTest2()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void loadElementFunctionTest3()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void clearElementFunctionTest()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void clearSelectionFunctionTest()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void clearSelectionFunctionTest1()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void getSelectedContactsFunctionTest1()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void selectFunctionTest3()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void selectFunctionTest4()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void selectFunctionTest5()
+        {
+            Assert.Fail();
+        }
     }
 }

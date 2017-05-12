@@ -16,7 +16,7 @@ namespace Phonebook
         Contact CurrentContact;
         Main CurrentMain;
         formControlHelpers formhelp = new formControlHelpers();
-        helpers help = new helpers();
+
         public DetailsForm(Contact currentcontact, Main main)
         {
             InitializeComponent();
@@ -56,7 +56,7 @@ namespace Phonebook
         }
 
         private void setDefaults() {
-            formhelp.loadElement(UgcomboBox, CurrentMain.Usergroups);
+            formControlHelpers.loadElement(UgcomboBox, CurrentMain.Usergroups);
             SetValues(CurrentContact);
             DeactivateFields();
         }
@@ -68,12 +68,12 @@ namespace Phonebook
             CurrentContact = GetValues();
             DeactivateFields();
             CurrentMain.UpdateForm();
-            help.successMessage(" Contact Successfully Updated");
+            valueHelpers.successMessage(" Contact Successfully Updated");
         }
 
         bool checkfornulls() {
             var value = false;
-            if (help.checknulls(NametextBox,errorProvider1) == true|| help.checknulls(PhonetextBox, errorProvider1)|| help.checknulls(UgcomboBox, errorProvider1) == true) {
+            if (valueHelpers.checknulls(NametextBox,errorProvider1) == true|| valueHelpers.checknulls(PhonetextBox, errorProvider1)|| valueHelpers.checknulls(UgcomboBox, errorProvider1) == true) {
                 value = true;
             }
             return value;
@@ -105,7 +105,7 @@ namespace Phonebook
 
         private void PhonetextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            help.restrictinput(e);
+            valueHelpers.restrictinput(e);
         }
     }
 }

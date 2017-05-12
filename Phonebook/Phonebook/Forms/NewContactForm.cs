@@ -8,15 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Phonebook.Helpers;
+using Phonebook.Controllers;
 
 namespace Phonebook
 {
     public partial class NewContactForm : Form
     {
-        private phoneBookController Pbook;
+
         private Main MainForm;
-        formControlHelpers formHelp = new formControlHelpers();
-        private helpers help = new helpers();
+        #region Controllers
+
+        private phoneBookController Pbook;
+        private newContactFormController NewCtrl = new newContactFormController();
+
+        #endregion
+
         public NewContactForm(phoneBookController pbook, Main main)
         {
             InitializeComponent();
@@ -24,7 +30,9 @@ namespace Phonebook
             MainForm = main;
             setdefaults();
         }
-        //################## FORM EVENT HANDLING ##################
+        //################## Event Handler ##################
+        #region Event Handlers
+
         private void AddPbutton_Click(object sender, EventArgs e)
         {
             addPerson();
@@ -42,16 +50,31 @@ namespace Phonebook
 
         private void CompanyPhonetextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            help.restrictinput(e);
+            valueHelpers.restrictinput(e);
         }
 
         private void PhonetextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            help.restrictinput(e);
+            valueHelpers.restrictinput(e);
         }
 
-        //################## FUNCTIONS ##################
+        private void addbutton_Click(object sender, EventArgs e)
+        {
+            switch (addContactTabControl.SelectedIndex)
+            {
+                case 0:
+                    addPerson();
+                    break;
+                case 1:
+                    addCompany();
+                    break;
+            }
+        }
+        #endregion
         
+        //################## Functions ##################
+        #region functions
+
         void setdefaults() {
             loadComboboxes();
             ugcomboBox1.SelectedItem = "Unassigned";
@@ -59,26 +82,25 @@ namespace Phonebook
         }
 
         private void clearFields() {
-            FirstNtextBox.Clear();
-            LastNtextBox.Clear();
-            PhonetextBox.Clear();
-            personaddresstextBox.Clear();
-            companyaddresstextBox.Clear();
-            CompanyNtextBox.Clear();
-            CompanyPhonetextBox.Clear();
-            ugcomboBox1.SelectedItem = null;
-            ugcomboBox2.SelectedItem = null;
+            formControlHelpers.clearElement(FirstNtextBox);
+            formControlHelpers.clearElement(LastNtextBox);
+            formControlHelpers.clearElement(PhonetextBox);
+            formControlHelpers.clearElement(personaddresstextBox);
+            formControlHelpers.clearElement(companyaddresstextBox);
+            formControlHelpers.clearElement(CompanyNtextBox);
+            formControlHelpers.clearElement(CompanyPhonetextBox);
+
+            formControlHelpers.clearSelection(ugcomboBox1);
+            formControlHelpers.clearSelection(ugcomboBox2);
         }
 
         private void loadComboboxes() {
-            formHelp.loadElement(ugcomboBox1, MainForm.Usergroups);
-            formHelp.loadElement(ugcomboBox2, MainForm.Usergroups);
+            formControlHelpers.loadElement(ugcomboBox1, MainForm.Usergroups);
+            formControlHelpers.loadElement(ugcomboBox2, MainForm.Usergroups);
         }
         
         void addcontact(Contact contact) {
-            Pbook.Create(contact);
-            MainForm.UpdateForm();
-            help.successMessage("Contact succesfully added");
+            NewCtrl.addcontact(contact, MainForm);
             clearFields();
         }
 
@@ -88,6 +110,7 @@ namespace Phonebook
                 addcontact(contact);
             }
         }
+
         void addCompany()
         {
             if (checkcompanynulls()== false) {
@@ -99,21 +122,23 @@ namespace Phonebook
         bool checkpersonnulls()
         {
             bool value = false;
-            if(help.checknulls(FirstNtextBox, errorProvider)== true || help.checknulls(LastNtextBox, errorProvider) == true || help.checknulls(PhonetextBox, errorProvider) == true|| help.checknulls(ugcomboBox1, errorProvider) == true)
+            if(valueHelpers.checknulls(FirstNtextBox, errorProvider)== true || valueHelpers.checknulls(LastNtextBox, errorProvider) == true || valueHelpers.checknulls(PhonetextBox, errorProvider) == true|| valueHelpers.checknulls(ugcomboBox1, errorProvider) == true)
             {
                 value = true;
             }
             return value;
         }
+
         bool checkcompanynulls()
         {
             bool value = false;
-            if (help.checknulls(CompanyNtextBox, errorProvider) == true || help.checknulls(CompanyPhonetextBox, errorProvider) == true || help.checknulls(ugcomboBox2, errorProvider) == true)
+            if (valueHelpers.checknulls(CompanyNtextBox, errorProvider) == true || valueHelpers.checknulls(CompanyPhonetextBox, errorProvider) == true || valueHelpers.checknulls(ugcomboBox2, errorProvider) == true)
             {
                 value = true;
             }
             return value;
         }
+
         Contact setcompanyvalues()
         {
             var group = Pbook.GetObject(ugcomboBox2.SelectedItem.ToString());
@@ -128,17 +153,6 @@ namespace Phonebook
             return contact;
         }
 
-        private void addbutton_Click(object sender, EventArgs e)
-        {
-            switch (addContactTabControl.SelectedIndex) {
-                case 0:
-                    addPerson();
-                    break;
-                case 1:
-                    addCompany();
-                    break;
-            } 
-        }
-        
+        #endregion 
     }
 }

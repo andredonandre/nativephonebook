@@ -13,7 +13,6 @@ namespace Phonebook.Tests
     public class helpersTests
     {
         // Helpers for testing
-        helpers help = new helpers();
         ErrorProvider error = new ErrorProvider();
 
         // Test methods
@@ -36,7 +35,7 @@ namespace Phonebook.Tests
             // act
             TextBox textBox = new TextBox();
             textBox.Text = "";
-            bool result = help.checknulls(textBox, error);
+            bool result = valueHelpers.checknulls(textBox, error);
             // assert
             Assert.IsTrue(result);
         }
@@ -47,7 +46,7 @@ namespace Phonebook.Tests
             // act
             TextBox textBox = new TextBox();
             textBox.Text = "Hello world";
-            bool result = help.checknulls(textBox, error);
+            bool result = valueHelpers.checknulls(textBox, error);
             // assert
             Assert.IsFalse(result);
         }
@@ -60,7 +59,7 @@ namespace Phonebook.Tests
             // act
             ComboBox comboBox = new ComboBox();
             comboBox.SelectedItem = null;
-            bool result = help.checknulls(comboBox, error);
+            bool result = valueHelpers.checknulls(comboBox, error);
             // assert
             Assert.IsTrue(result);
         }
@@ -72,7 +71,7 @@ namespace Phonebook.Tests
             ComboBox comboBox = new ComboBox();
             comboBox.Items.Add("Test");
             comboBox.SelectedIndex = 0;
-            bool result = help.checknulls(comboBox, error);
+            bool result = valueHelpers.checknulls(comboBox, error);
             // assert
             Assert.IsFalse(result);
         }
@@ -83,7 +82,7 @@ namespace Phonebook.Tests
             // act
             ComboBox comboBox = new ComboBox();
             comboBox.Text = "";
-            bool result = help.checknulls(comboBox, error);
+            bool result = valueHelpers.checknulls(comboBox, error);
             // assert
             Assert.IsTrue(result);
         }
@@ -94,7 +93,7 @@ namespace Phonebook.Tests
             ComboBox comboBox = new ComboBox();
             comboBox.Items.Add("Test");
             comboBox.SelectedIndex = 0;
-            bool result = help.checknulls(comboBox, error);
+            bool result = valueHelpers.checknulls(comboBox, error);
             // assert
             Assert.IsFalse(result);
         }
@@ -108,7 +107,7 @@ namespace Phonebook.Tests
             ListBox listBox = new ListBox();
             listBox.Items.Add("Test");
             listBox.SelectedIndex = -1;
-            bool result = help.checknulls(listBox, error);
+            bool result = valueHelpers.checknulls(listBox, error);
             // assert
             Assert.IsTrue(result);
         }
@@ -120,7 +119,7 @@ namespace Phonebook.Tests
             ListBox listBox = new ListBox();
             listBox.Items.Add("Test");
             listBox.SelectedIndex = 0;
-            bool result = help.checknulls(listBox, error);
+            bool result = valueHelpers.checknulls(listBox, error);
             // assert
             Assert.IsFalse(result);
         }
@@ -133,7 +132,7 @@ namespace Phonebook.Tests
             // act
             DataGridView dataGrid = new DataGridView();
             dataGrid.CurrentRow.AccessibilityObject.Value = null;
-            bool result = help.checknulls(dataGrid, error);
+            bool result = valueHelpers.checknulls(dataGrid, error);
             // assert
             Assert.IsTrue(result);
         }

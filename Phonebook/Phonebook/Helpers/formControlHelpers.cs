@@ -10,7 +10,7 @@ namespace Phonebook.Helpers
 {
     public class formControlHelpers
     {
-        public void loadElement(ComboBox combobox, Collection<UserGroup> List)
+        public static void loadElement(ComboBox combobox, Collection<UserGroup> List)
         {
             combobox.Items.Clear();
             foreach (UserGroup ug in List)
@@ -19,16 +19,28 @@ namespace Phonebook.Helpers
             }
         }
         
-        public void loadElement(ListBox listbox, Collection<UserGroup> List)
+        public static void loadElement(ListBox listbox, Collection<UserGroup> List)
         {
             listbox.Items.Clear();
             foreach (UserGroup ug in List)
             {
                 listbox.Items.Add(ug.Name);
             }
-        }        
+        }
 
-        public Collection<Contact> getSelectedContacts(DataGridView grid, phoneBookController Pb, Collection<Contact> contacts)
+        public static void clearElement(TextBox textbox) {
+            textbox.Clear();
+        }
+
+        public static void clearSelection(ComboBox combobox) {
+            combobox.SelectedItem = null;
+        }
+
+        public static void clearSelection(ListBox listbox) {
+            listbox.SelectedItem = null;
+        }
+
+        public static Collection<Contact> getSelectedContacts(DataGridView grid, phoneBookController Pb, Collection<Contact> contacts)
         {
             var selected = grid.SelectedRows.OfType<DataGridViewRow>();
             foreach (var row in selected)
@@ -45,13 +57,19 @@ namespace Phonebook.Helpers
             return contacts;
         }
 
-        public string select(ComboBox combobox) {
+        public static string select(ComboBox combobox) {
             return combobox.SelectedItem.ToString();
         }
 
-        public string select(DataGridView grid)
+        public static string select(DataGridView grid)
         {
             var value = grid.CurrentRow.AccessibilityObject.Value;
+            return value;
+        }
+
+        public static string select(ListBox list)
+        {
+            var value = list.SelectedItem.ToString();
             return value;
         }
     }

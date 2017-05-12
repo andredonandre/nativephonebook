@@ -16,14 +16,16 @@ namespace Phonebook
         Main parentForm;
         UserGroup selectedgroup;
         formControlHelpers formHelp = new formControlHelpers();
-        helpers help = new helpers();
+
         public groupsForm(Main main)
         {
             InitializeComponent();
             parentForm = main;
             setdefaults();
         }
-        //################## FORM EVENT HANDLING ##################
+        //##################Event Handlers##################
+        #region Event handlers
+
         private void uglistBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (uglistBox.SelectedItem != null)
@@ -32,14 +34,14 @@ namespace Phonebook
 
         private void addbutton_Click(object sender, EventArgs e)
         {
-            if (help.checknulls(ugtextbox, errorProvider1) == false) {
+            if (valueHelpers.checknulls(ugtextbox, errorProvider1) == false) {
                 add();
             }
         }
 
         private void savebutton_Click(object sender, EventArgs e)
         {
-            if (help.checknulls(ugtextbox, errorProvider1) == false) {
+            if (valueHelpers.checknulls(ugtextbox, errorProvider1) == false) {
                 save();
             }
         }
@@ -48,27 +50,24 @@ namespace Phonebook
         {
             cancel();
         }
+        #endregion
 
-        //################## FUNCTIONS ##################
-        private string selectUserGroup()
-        {
-            var value = uglistBox.SelectedItem.ToString();
-            return value;
-        }
-
+        #region Functions
+        //################## Functions ##################
+        
         private void deletebutton_Click(object sender, EventArgs e)
         {
-            if (help.checknulls(uglistBox, errorProvider1) == false) { delete(); }
+            if (valueHelpers.checknulls(uglistBox, errorProvider1) == false) { delete(); }
 
         }
 
         private void editbutton_Click(object sender, EventArgs e)
         {
-            if (help.checknulls(uglistBox, errorProvider1) == false) { edit(); }
+            if (valueHelpers.checknulls(uglistBox, errorProvider1) == false) { edit(); }
         }
 
         void setdefaults(){
-            formHelp.loadElement(uglistBox, parentForm.Usergroups);
+            formControlHelpers.loadElement(uglistBox, parentForm.Usergroups);
         }
 
         void add() {
@@ -89,7 +88,7 @@ namespace Phonebook
         }
 
         void delete() {
-            var value = selectUserGroup();
+            var value = formControlHelpers.select(uglistBox);
             UserGroup usergroup;
             if (value != null && value != "All Contacts" && value != "Unassigned")
             {
@@ -118,8 +117,9 @@ namespace Phonebook
             savebutton.Visible = false;
             uglistBox.Enabled = true;
         }
+
         void setActiveUsergroup() {
-            var activegroup = parentForm.Pb.GetObject(selectUserGroup());
+            var activegroup = parentForm.Pb.GetObject(formControlHelpers.select(uglistBox));
             selectedgroup = activegroup;
             ugtextbox.Text = selectedgroup.Name;
         }
@@ -131,7 +131,7 @@ namespace Phonebook
         }
 
         void updateForm() {
-            formHelp.loadElement(uglistBox, parentForm.Usergroups);
+            formControlHelpers.loadElement(uglistBox, parentForm.Usergroups);
             parentForm.UpdateForm();
         }
 
@@ -150,5 +150,6 @@ namespace Phonebook
             var newgroup = new UserGroup(value);
             parentForm.Pb.Update(selectedgroup, newgroup);
         }
+        #endregion
     }
 }

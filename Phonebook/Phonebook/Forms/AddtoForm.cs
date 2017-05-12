@@ -17,7 +17,6 @@ namespace Phonebook
     {
         Main parentForm;
         formControlHelpers formHelp = new formControlHelpers();
-        helpers help = new helpers();
         
         int selectedNumber = 0;
         Collection<Contact> selectedcontacts;
@@ -43,7 +42,7 @@ namespace Phonebook
         }
         //################## FUNCTIONS ##################
         void getDefaults() {
-            formHelp.loadElement(Usercombobox, parentForm.Usergroups);
+            formControlHelpers.loadElement(Usercombobox, parentForm.Usergroups);
             loadInterface();
         }
         void getSelectedUserGroup() {
@@ -60,10 +59,10 @@ namespace Phonebook
         }
 
         void save() {
-            if (help.checknulls(Usercombobox, errorProvider1) == false){
+            if (valueHelpers.checknulls(Usercombobox, errorProvider1) == false){
                 getSelectedUserGroup();
                 addContactstoGroup();
-                help.successMessage(" Contacts have been succesfully added to group");
+                valueHelpers.successMessage(" Contacts have been succesfully added to group");
                 closeForm();
             }
         }
@@ -77,8 +76,8 @@ namespace Phonebook
             }
         }
 
-        void closeForm() {
-            parentForm.clearSelectedContacts();
+        void closeForm() {//####
+            parentForm.selectedContacts.Clear();
             Close();
         }
 

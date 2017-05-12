@@ -18,8 +18,7 @@ namespace Phonebook.Controllers
                 grid.Rows.Add(c.Name, c.PhoneNumber);
             }
         }
-
-
+        
         public string selectItem(DataGridView grid)
         {
             var value = grid.CurrentRow.AccessibilityObject.Value;
@@ -57,6 +56,10 @@ namespace Phonebook.Controllers
                 main.Contacts = newlist;
             }
         }
-               
+
+        public void clearSelectedContacts(Main main)
+        {
+           main.selectedContacts.Clear();
+        }
     }
 }

@@ -1,36 +1,42 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Phonebook;
+using Phonebook.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Phonebook.Tests
+namespace Phonebook.Controllers.Tests
 {
     [TestClass()]
-    public class MainFormTests
+    public class mainControllerTests
     {
         [TestMethod()]
-        public void MainFunctionTest()
+        public void loadContactsFunctionTest()
         {
             Assert.Fail();
         }
 
         [TestMethod()]
-        public void loadElementFunctionTest()
+        public void selectItemFunctionTest()
         {
             Assert.Fail();
         }
 
         [TestMethod()]
-        public void loadElementFunctionTest1()
+        public void getSelectedObjectFunctionTest()
         {
             Assert.Fail();
         }
 
         [TestMethod()]
-        public void UpdateFormFunctionTest()
+        public void ExtractContactDetailsFunctionTest()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void filterContactsFunctionTest()
         {
             Assert.Fail();
         }

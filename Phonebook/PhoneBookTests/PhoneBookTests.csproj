@@ -51,12 +51,8 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\mainControllerTests.cs" />
     <Compile Include="Controllers\phoneBookControllerTests.cs" />
-    <Compile Include="Forms\AddtoFormTests.cs" />
-    <Compile Include="Forms\DetailsFormTests.cs" />
-    <Compile Include="Forms\groupsFormTests.cs" />
-    <Compile Include="Forms\MainFormTests.cs" />
-    <Compile Include="Forms\NewContactFormTests.cs" />
     <Compile Include="Helpers\formControlHelpersTests.cs" />
     <Compile Include="Helpers\helpersTests.cs" />
     <Compile Include="UnitTest1.cs" />
@@ -70,6 +66,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Forms\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
