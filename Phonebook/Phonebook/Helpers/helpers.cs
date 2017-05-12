@@ -13,6 +13,15 @@ namespace Phonebook
         {
             MessageBox.Show(text);
         }
+
+        public void restrictinput(KeyPressEventArgs e)
+        {
+            if (!(Char.IsDigit(e.KeyChar) || (e.KeyChar == (char)Keys.Back) || (e.KeyChar == (char)43)))
+            {
+                e.Handled = true;
+            }
+        }
+
         public bool checknulls(TextBox textbox, ErrorProvider error)
         {
             bool value = false;
@@ -23,13 +32,7 @@ namespace Phonebook
             }
             return value;
         }
-        public void restrictinput(KeyPressEventArgs e)
-        {
-            if (!(Char.IsDigit(e.KeyChar) || (e.KeyChar == (char)Keys.Back) || (e.KeyChar == (char)43)))
-            {
-                e.Handled = true;
-            }
-        }
+
         public bool checknulls(ComboBox combobox, ErrorProvider error)
         {
             bool value = false;
