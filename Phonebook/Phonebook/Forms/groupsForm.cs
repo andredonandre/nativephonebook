@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Phonebook.Helpers;
 
 namespace Phonebook
 {
@@ -14,6 +15,7 @@ namespace Phonebook
     {
         Main parentForm;
         UserGroup selectedgroup;
+        formControlHelpers formHelp = new formControlHelpers();
         helpers help = new helpers();
         public groupsForm(Main main)
         {
@@ -66,7 +68,7 @@ namespace Phonebook
         }
 
         void setdefaults(){
-            parentForm.loadElement(uglistBox);
+            formHelp.loadElement(uglistBox, parentForm.Usergroups);
         }
 
         void add() {
@@ -129,7 +131,7 @@ namespace Phonebook
         }
 
         void updateForm() {
-            parentForm.loadElement(uglistBox);
+            formHelp.loadElement(uglistBox, parentForm.Usergroups);
             parentForm.UpdateForm();
         }
 

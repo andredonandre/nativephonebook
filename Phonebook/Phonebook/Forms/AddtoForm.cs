@@ -8,12 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Phonebook.Helpers;
+
 
 namespace Phonebook
 {
     public partial class AddtoForm : Form
     {
         Main parentForm;
+        formControlHelpers formHelp = new formControlHelpers();
         helpers help = new helpers();
         
         int selectedNumber = 0;
@@ -40,7 +43,7 @@ namespace Phonebook
         }
         //################## FUNCTIONS ##################
         void getDefaults() {
-            parentForm.loadElement(Usercombobox);
+            formHelp.loadElement(Usercombobox, parentForm.Usergroups);
             loadInterface();
         }
         void getSelectedUserGroup() {

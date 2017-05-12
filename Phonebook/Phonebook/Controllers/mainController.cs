@@ -19,6 +19,26 @@ namespace Phonebook.Controllers
             }
         }
 
+
+        public string selectItem(DataGridView grid)
+        {
+            var value = grid.CurrentRow.AccessibilityObject.Value;
+            return value;
+        }
+
+        public Contact getSelectedObject(DataGridView grid)
+        {
+            var value = selectItem(grid);           
+            return ExtractContactDetails(value);
+        }
+
+        public Contact ExtractContactDetails(string value)
+        {          
+                var content = value.Split(';');
+                Contact contact = new Contact { PhoneNumber = content[1], Name = content[0], userGroup = new UserGroup("") };               
+                return contact;
+        }
+
         public void filterContacts(string group, Main main)
         {
             var newlist = new Collection<Contact>();

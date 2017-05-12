@@ -26,7 +26,7 @@ namespace Phonebook.Helpers
             {
                 listbox.Items.Add(ug.Name);
             }
-        }
+        }        
 
         public Collection<Contact> getSelectedContacts(DataGridView grid, phoneBookController Pb, Collection<Contact> contacts)
         {
@@ -43,6 +43,10 @@ namespace Phonebook.Helpers
                 contacts.Add(contactdetails);
             }
             return contacts;
+        }
+
+        public string select(ComboBox combobox) {
+            return combobox.SelectedItem.ToString();
         }
 
         public string select(DataGridView grid)

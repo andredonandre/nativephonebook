@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Phonebook.Helpers;
 
 namespace Phonebook
 {
@@ -14,15 +15,14 @@ namespace Phonebook
     {
         Contact CurrentContact;
         Main CurrentMain;
+        formControlHelpers formhelp = new formControlHelpers();
         helpers help = new helpers();
         public DetailsForm(Contact currentcontact, Main main)
         {
             InitializeComponent();
             CurrentContact = currentcontact;
             CurrentMain = main;
-            CurrentMain.loadElement(UgcomboBox);
-            SetValues(CurrentContact);
-            DeactivateFields();
+            setDefaults();
         }
         //################## FORM EVENT HANDLING ##################
         private void editbutton_Click(object sender, EventArgs e)
@@ -55,6 +55,12 @@ namespace Phonebook
             return contact;
         }
 
+        private void setDefaults() {
+            formhelp.loadElement(UgcomboBox, CurrentMain.Usergroups);
+            SetValues(CurrentContact);
+            DeactivateFields();
+        }
+
         void saveChanges() {
             var contact = CurrentMain.Pb.GetObject(CurrentContact);
             CurrentMain.Pb.Update(contact, GetValues());
@@ -64,6 +70,7 @@ namespace Phonebook
             CurrentMain.UpdateForm();
             help.successMessage(" Contact Successfully Updated");
         }
+
         bool checkfornulls() {
             var value = false;
             if (help.checknulls(NametextBox,errorProvider1) == true|| help.checknulls(PhonetextBox, errorProvider1)|| help.checknulls(UgcomboBox, errorProvider1) == true) {

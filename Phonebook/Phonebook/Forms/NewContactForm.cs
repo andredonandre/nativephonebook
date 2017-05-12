@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Phonebook.Helpers;
 
 namespace Phonebook
 {
@@ -14,6 +15,7 @@ namespace Phonebook
     {
         private phoneBookController Pbook;
         private Main MainForm;
+        formControlHelpers formHelp = new formControlHelpers();
         private helpers help = new helpers();
         public NewContactForm(phoneBookController pbook, Main main)
         {
@@ -69,8 +71,8 @@ namespace Phonebook
         }
 
         private void loadComboboxes() {
-            MainForm.loadElement(ugcomboBox1);
-            MainForm.loadElement(ugcomboBox2);
+            formHelp.loadElement(ugcomboBox1, MainForm.Usergroups);
+            formHelp.loadElement(ugcomboBox2, MainForm.Usergroups);
         }
         
         void addcontact(Contact contact) {

@@ -16,18 +16,20 @@ namespace Phonebook
     public partial class Main : Form
     {
         public Collection<Contact> Contacts;
+        public Collection<UserGroup> Usergroups;
         Collection<Contact> selectedContacts = new Collection<Contact>();
-        Collection<UserGroup> Usergroups;
 
+        #region controllers and helpers
         private helpers help = new helpers();
         private formControlHelpers formhelp = new formControlHelpers();
         private groupsFormController groupsCtrl = new groupsFormController();
         private addToFormController addtoCtrl = new addToFormController();
         private newContactFormController newFormCtrl = new newContactFormController();
+        private detailsFormController detailsCtrl = new detailsFormController();
         public phoneBookController Pb = new phoneBookController();
         mainController mainCtrl;
+        #endregion
         
-
         public Main(mainController _controller)
         {
             mainCtrl = _controller;
@@ -57,7 +59,7 @@ namespace Phonebook
 
         private void contactGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            select(contactGrid);
+            mainCtrl.selectItem(contactGrid);
         }
 
         private void UsergroupcomboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -84,63 +86,35 @@ namespace Phonebook
             Contacts = Pb.GetContacts();
             Usergroups = Pb.GetUserGroups();
             loadContacts();
-            loadElement(UsergroupcomboBox);
+            formhelp.loadElement(UsergroupcomboBox, Usergroups);
             UsergroupcomboBox.SelectedIndex = 0;
         }
-
-        //Helpers to load objects in elements
-        public void loadElement(ComboBox combobox) {
-            formhelp.loadElement(combobox, Usergroups);
-        }
-        public void loadElement(ListBox listbox) {
-            formhelp.loadElement(listbox, Usergroups);
-        }
-
+        
         public void UpdateForm() {
             loadContacts();
-            loadElement(UsergroupcomboBox);
+            formhelp.loadElement(UsergroupcomboBox, Usergroups);
         }
 
         void updateGrid() {
-            var group = UsergroupcomboBox.SelectedItem.ToString();
+            var group = formhelp.select(UsergroupcomboBox);
             filterContacts(group);
             loadContacts();
         }
-
-        private string select(DataGridView grid) {
-            var value = grid.CurrentRow.AccessibilityObject.Value;
-            //activateButtons();
-            return value;
-        }
-
+        
         void add() {
             newFormCtrl.open(this);
         }
 
         private void edit() {
-            var value = select(contactGrid);
-            Contact contact;
-            DetailsForm details;
-            if (value != null)
-            {
-                var content = value.Split(';');
-                contact = new Contact { PhoneNumber = content[1], Name =content[0], userGroup =new UserGroup("") };
-                details = new DetailsForm(Pb.GetObject(contact), this);
-                details.ShowDialog();
-            }
+            var contact = mainCtrl.getSelectedObject(contactGrid);
+            detailsCtrl.open(this, contact);
         }
 
         private void delete() {
-            var value = select(contactGrid);
-            Contact contact;
-            if (value != null)
-            {
-                var content = value.Split(';');
-                contact = new Contact { Name = content[0], PhoneNumber= content[1]};
-                Pb.Delete(contact);
-                UpdateForm();
-                help.successMessage("contact succesfully deleted");
-            }
+            var contact = mainCtrl.getSelectedObject(contactGrid);
+            Pb.Delete(contact);
+            UpdateForm();
+            help.successMessage("contact succesfully deleted");
         }
 
         void addTo() {
