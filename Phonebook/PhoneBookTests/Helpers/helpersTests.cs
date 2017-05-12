@@ -5,20 +5,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Phonebook.Tests
 {
     [TestClass()]
     public class helpersTests
     {
+        // Helpers for testing
+        helpers help = new helpers();
+        ErrorProvider error = new ErrorProvider();
+
+        // Test methods
         [TestMethod()]
         public void successMessageFunctionTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void checknullsFunctionTest()
         {
             Assert.Fail();
         }
@@ -29,52 +29,113 @@ namespace Phonebook.Tests
             Assert.Fail();
         }
 
+        #region CheckNullsFunction TextBox
         [TestMethod()]
-        public void checknullsFunctionTest1()
+        public void checknullsFunction_textBoxTextIsNull_True()
         {
-            Assert.Fail();
+            // act
+            TextBox textBox = new TextBox();
+            textBox.Text = "";
+            bool result = help.checknulls(textBox, error);
+            // assert
+            Assert.IsTrue(result);
         }
 
         [TestMethod()]
-        public void checknullsFunctionTest2()
+        public void checknullsFunction_textBoxTextIsNotNull_False()
         {
-            Assert.Fail();
+            // act
+            TextBox textBox = new TextBox();
+            textBox.Text = "Hello world";
+            bool result = help.checknulls(textBox, error);
+            // assert
+            Assert.IsFalse(result);
+        }
+        #endregion
+
+        #region CheckNullsFunction ComboBox
+        [TestMethod()]
+        public void checknullsFunction_comboBoxSelectedItemIsNull_True()
+        {
+            // act
+            ComboBox comboBox = new ComboBox();
+            comboBox.SelectedItem = null;
+            bool result = help.checknulls(comboBox, error);
+            // assert
+            Assert.IsTrue(result);
         }
 
         [TestMethod()]
-        public void checknullsFunctionTest3()
+        public void checknullsFunction_comboBoxSelectedItemIsNotNull_False()
         {
-            Assert.Fail();
+            // act
+            ComboBox comboBox = new ComboBox();
+            comboBox.Items.Add("Test");
+            comboBox.SelectedIndex = 0;
+            bool result = help.checknulls(comboBox, error);
+            // assert
+            Assert.IsFalse(result);
         }
 
         [TestMethod()]
-        public void successMessageFunctionTest1()
+        public void checknullsFunction_comboBoxTextIsNull_True()
         {
-            Assert.Fail();
+            // act
+            ComboBox comboBox = new ComboBox();
+            comboBox.Text = "";
+            bool result = help.checknulls(comboBox, error);
+            // assert
+            Assert.IsTrue(result);
         }
 
         [TestMethod()]
-        public void checknullsFunctionTest4()
+        public void checknullsFunction_comboBoxTextIsNotNull_False()
         {
-            Assert.Fail();
+            ComboBox comboBox = new ComboBox();
+            comboBox.Items.Add("Test");
+            comboBox.SelectedIndex = 0;
+            bool result = help.checknulls(comboBox, error);
+            // assert
+            Assert.IsFalse(result);
+        }
+        #endregion
+
+        #region CheckNullsFunction ListBox
+        [TestMethod()]
+        public void checknullsFunction_listBoxSelectedItemIsNull_True()
+        {
+            // act
+            ListBox listBox = new ListBox();
+            listBox.Items.Add("Test");
+            listBox.SelectedIndex = -1;
+            bool result = help.checknulls(listBox, error);
+            // assert
+            Assert.IsTrue(result);
         }
 
         [TestMethod()]
-        public void restrictinputFunctionTest1()
+        public void checknullsFunction_listBoxSelectedItemIsNull_False()
         {
-            Assert.Fail();
+            // act
+            ListBox listBox = new ListBox();
+            listBox.Items.Add("Test");
+            listBox.SelectedIndex = 0;
+            bool result = help.checknulls(listBox, error);
+            // assert
+            Assert.IsFalse(result);
         }
+        #endregion
 
+        #region CheckNullsFunction DataGridView
         [TestMethod()]
-        public void checknullsFunctionTest5()
+        public void checknullsFunction_gridViewAccessibilityObjectIsNull_True()
         {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void checknullsFunctionTest6()
-        {
-            Assert.Fail();
+            // act
+            DataGridView dataGrid = new DataGridView();
+            dataGrid.CurrentRow.AccessibilityObject.Value = null;
+            bool result = help.checknulls(dataGrid, error);
+            // assert
+            Assert.IsTrue(result);
         }
 
         [TestMethod()]
@@ -82,5 +143,6 @@ namespace Phonebook.Tests
         {
             Assert.Fail();
         }
+        #endregion
     }
 }
