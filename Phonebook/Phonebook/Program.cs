@@ -11,7 +11,7 @@ namespace Phonebook
     {
         /// <summary>
         /// The main entry point for the application.
-        /// Authored by Group 3
+        /// Authored by Group 2
         /// Andrew Owen Sembatya & Emil Pettersson
         /// </summary>
         [STAThread]
