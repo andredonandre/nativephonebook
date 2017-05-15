@@ -55,8 +55,7 @@
     <Compile Include="Controllers\mainControllerTests.cs" />
     <Compile Include="Controllers\phoneBookControllerTests.cs" />
     <Compile Include="Helpers\formControlHelpersTests.cs" />
-    <Compile Include="Helpers\helpersTests.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="Helpers\valueHelpersTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
