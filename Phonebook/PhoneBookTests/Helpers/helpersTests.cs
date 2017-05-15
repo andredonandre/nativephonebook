@@ -14,20 +14,7 @@ namespace Phonebook.Tests
     {
         // Helpers for testing
         ErrorProvider error = new ErrorProvider();
-
-        // Test methods
-        [TestMethod()]
-        public void successMessageFunctionTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void restrictinputFunctionTest()
-        {
-            Assert.Fail();
-        }
-
+             
         #region CheckNullsFunction TextBox
         [TestMethod()]
         public void checknullsFunction_textBoxTextIsNull_True()
@@ -127,21 +114,21 @@ namespace Phonebook.Tests
 
         #region CheckNullsFunction DataGridView
         [TestMethod()]
-        public void checknullsFunction_gridViewAccessibilityObjectIsNull_True()
+        public void checknullsFunction_gridViewAccessibilityObjectNotNull_False()
         {
+            
+            //Arrange
+            DataGridView grid = new DataGridView();
+            grid.Columns.Add("col1", "Name");
+            grid.Columns.Add("col2", "PhoneNumber");
+            grid.Rows.Add("Phil Collins", "028987409505");
+            grid.CurrentCell = grid[0,0];
             // act
-            DataGridView dataGrid = new DataGridView();
-            dataGrid.CurrentRow.AccessibilityObject.Value = null;
-            bool result = valueHelpers.checknulls(dataGrid, error);
+            bool result = valueHelpers.checknulls(grid, error);
             // assert
-            Assert.IsTrue(result);
+            Assert.IsFalse(result);
         }
 
-        [TestMethod()]
-        public void checknullsFunctionTest7()
-        {
-            Assert.Fail();
-        }
         #endregion
     }
 }
